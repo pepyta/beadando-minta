@@ -13,7 +13,7 @@ class ItemController extends Controller
      */
     public function index()
     {
-        //
+        return Item::get();
     }
 
     /**
@@ -29,7 +29,11 @@ class ItemController extends Controller
      */
     public function store(StoreItemRequest $request)
     {
-        //
+        $adatok = $request->validate([
+            "name" => "required",
+        ]);
+
+        return Item::factory($adatok)->create();
     }
 
     /**
@@ -61,6 +65,6 @@ class ItemController extends Controller
      */
     public function destroy(Item $item)
     {
-        //
+        return $item->delete();
     }
 }
