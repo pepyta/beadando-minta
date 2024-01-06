@@ -1,0 +1,8 @@
+<ul>
+    <li *ngFor="let item of items">
+        {{item.name}} <button (click)="deleteItem(item.id)">Törlés</button>
+    </li>
+</ul>
+
+<input type="text" [(ngModel)]="name" placeholder="Új elem neve" />
+<button (click)="createItem()">Új elem felvétele</button>
